@@ -32,7 +32,6 @@ void insert(int d,int n){
      t->prev = t1;
      t1->next = t;  
  }
- free(t);
 }
 //print all the elements of double linked list in forward order
 void display(){

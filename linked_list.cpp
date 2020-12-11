@@ -26,14 +26,12 @@ void insert(int d,int n){
      t->p = t1->p;
      t1->p = t;  
  }
- free(t);
 }
 // remove the elment from the list of a given position
 void remove(int n){
 node* t = root;
  if (n==1){
 root = t->p;
-free(t);
 return;
  }
  node* t1=root;

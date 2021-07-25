@@ -34,6 +34,17 @@ for (int i = 0; i < s.length(); i++)
 }
  return temp->isword;
 }
+void deleteword(node* root,string s){
+    node* temp = root;
+for (int i = 0; i < s.length(); i++)
+{
+    if(temp->next[s[i] - 'a']== NULL)
+        cout<<"word not found"<<endl;
+    temp= temp->next[s[i] - 'a'];
+}
+    cout<<"deleted"<<endl;
+    temp->isword =false;
+}
 int main(){
     node *root = newnode();
     int n;
@@ -51,8 +62,9 @@ int main(){
     for (int i = 0; i < n; i++)
     {
         cin>>s;
-        if(search(root,s)) cout<<s<<" is in the trie\n";
-        else cout<<s<<" is not in the trie\n";
+         if(search(root,s)) cout<<s<<" is in the trie\n";
+         else cout<<s<<" is not in the trie\n";
+         deleteword(root,s);
     }
     
     

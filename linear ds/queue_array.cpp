@@ -2,8 +2,9 @@
 using namespace std;
 # define Max 10
 int q[Max];
-int front =0,rear =0,d;
+int front =0,rear =0;
 void queueEnqueue(){
+int d;
  if (rear==Max -1)
  cout<<"Queue is full";
  else{

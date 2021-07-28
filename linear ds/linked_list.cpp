@@ -51,7 +51,7 @@ void display(){
     }
     cout<<t->data<<" "<<"\n";
 }
-/* for recusive forward print
+/* for recursive forward print
 void print(struct node* p){
     if(p==NULL){
         cout<<endl;

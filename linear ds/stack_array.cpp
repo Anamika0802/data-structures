@@ -1,7 +1,8 @@
  #include <iostream>
  using namespace std;
  #define Max 10
- int push(int stack[], int top)
+ static int top =-1;
+ int push(int stack[])
  {
  if (top == Max - 1)
  cout<<"Stack is full..... Please remove the elements from the stack first \n";
@@ -15,7 +16,7 @@
  }
  return top;
  }
- int pop(int stack[], int top)
+ int pop(int stack[])
  {
  if (top == -1)
   cout<<"Stack is empty..... Please fill the stack first \n";
@@ -26,16 +27,16 @@
  }
  return top;
  }
- void peek(int stack[],int top){
-     cout<<"Last element of the atack is :"<<stack[top]<<endl;
+ void peek(int stack[]){
+     cout<<"Last element of the stack is :"<<stack[top]<<endl;
  }
- void display(int stack[], int top)
+ void display(int stack[])
  {
  if (top == -1)
  cout<<"There is nothing to display as the stack is empty\n";
  else
  {
- cout<<"Elements of the stack are";
+ cout<<"Elements of the stack are ";
  for (int i = 0; i <=top; i++)
  {
      cout<<stack[i]<<" ";
@@ -43,7 +44,7 @@
  cout<<endl;}
  return ;}
  int main(){
- int stack[Max], top = -1, ch;
+ int stack[Max], ch;
  char ch1;
  do
  {
@@ -53,20 +54,19 @@ cin>>ch;
  switch (ch)
  {
  case 1:
- top = push(stack, top);
- break;
+    top = push(stack);
+    break;
  case 2:
- top = pop(stack, top);
- break;
-
+    top = pop(stack);
+    break;
  case 3:
-display(stack, top);
- break;
+    display(stack);
+    break;
  case 4:
-    peek(stack, top);
- break;
+    peek(stack);
+    break;
 default:
- printf("INVALID CHOICE\n");
+    printf("INVALID CHOICE\n");
  }
 cout<<"DO YOU WANT TO CONTINUE .... PRESS Y FOR YES AND N FOR NO : ";
 cin>>ch1;

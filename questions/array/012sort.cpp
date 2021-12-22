@@ -1,5 +1,4 @@
 #include<iostream>
-#include<algorithm>
 using namespace std;
 void sort_012(int *a,int n){
     int f=0,m=0,l=n-1;

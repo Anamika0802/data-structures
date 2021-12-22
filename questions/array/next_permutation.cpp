@@ -30,11 +30,8 @@ void next_permutaion(vector<int>& nums) {
 int main(){
     int n,an;
     cin>>n;
-    vector<int> a;
+    vector<int> a(n);
     for (int i = 0; i < n; i++)
-    {
-        cin>>an;
-        a.push_back(an);
-    }
+        cin>>a[i];
     next_permutaion(a);
 }

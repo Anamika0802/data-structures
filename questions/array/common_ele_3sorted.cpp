@@ -26,7 +26,7 @@ vector <int> commonElements (int a[], int b[], int c[], int n1, int n2, int n3)
 }
 int main(){
     int n1,n2,n3;
-    cout<<"Entet the size of two arrays: ";
+    cout<<"Enter the size of two arrays: ";
     cin>>n1>>n2>>n3;
     int a[n1],b[n2],c[n3];
     cout<<"Enter the elements of the two arrays: ";

@@ -17,7 +17,7 @@ unordered_map<int, int> m;
 }
 int main(){
     int n,s;
-    cout<<"Entet the size of array and sum: ";
+    cout<<"Enter the size of array and sum: ";
     cin>>n>>s;
     int a[n];
     cout<<"Enter the elements of the array: ";

@@ -15,12 +15,8 @@ long long findMinDiff(vector<long long> a, long long n, long long m){
 int main(){
     long long n,m;
     cin>>n>>m;
-    vector<long long>a;
+    vector<long long>a(n);
     for (long long i = 0; i < n; i++)
-    {
-        long long  el;
-        cin>>el;
-        a.push_back(el);
-    }
+        cin>>a[i];
     cout<<findMinDiff(a,n,m);
 }

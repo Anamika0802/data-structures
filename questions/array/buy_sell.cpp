@@ -6,11 +6,9 @@ void buy_sell(vector<int> &a){
     int buy = a[0];
     int max_price = 0;
     for(auto i:a){
-        int profit = i-buy;
-        if(profit>max_price)
-            max_price = profit;
+        max_price = max(max_price,i-buy);
         if(buy>i)
-        buy = i;
+        buy = i; // buy = min(buy,i);
     }
     cout<<max_price;
 }

@@ -28,9 +28,13 @@ int main(){
     vector<vector<int>> a;
     for (int i = 0; i < n; i++)
     {
-        vector<int>an(2);
+        vector<int>an;
         for (int j = 0; j < 2; j++)
-            cin>>an[i];
+        {
+            cin>>t;
+            an.push_back(t);
+        }
+        
         a.push_back(an);
     }
     merge_intervals(a);

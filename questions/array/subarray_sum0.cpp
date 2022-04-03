@@ -4,7 +4,7 @@ using namespace std;
  
 bool sum_0(int arr[], int size)
 {
-    int sum=0;
+    int sum=0;//sum= k
     unordered_set<int>sumSet;
  
     for (int i = 0; i < size; i++)

@@ -14,7 +14,7 @@ bool isValid(string s1,string s2,string res){
         else if(j<s2.length()&& s1[j]==res[k])
             j++;
         else
-            false;
+            return false;
         k++;
     }
     return true;

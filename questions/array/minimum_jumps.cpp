@@ -12,7 +12,7 @@ int minimum_jumps(int *a,int n){
         if(i==n-1)return jump;
         maxreach = max(maxreach, a[i]+i);
         step--;
-           if(step ==0){
+        if(step ==0){
             jump++;
             if(i>=maxreach)return -1;
             step = maxreach -i;

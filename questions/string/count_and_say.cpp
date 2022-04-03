@@ -20,17 +20,17 @@ string say(string s){
         return temp+to_string(c)+prev;
     }
 string countAndSay(int n) {
-        string res ="1";
-        if(n==1)
-            return "1";
-        for(int i=1;i<n;i++){
-            res = say(res);
-        }
-        return res;
+    string res ="1";
+    if(n==1)
+        return "1";
+    for(int i=1;i<n;i++){
+        res = say(res);
     }
+   return res;
+}
     
-    int main(){
-        int n;
-        cin>>n;
-        cout<<countAndSay(n);
-    }
+int main(){
+    int n;
+    cin>>n;
+    cout<<countAndSay(n);
+}

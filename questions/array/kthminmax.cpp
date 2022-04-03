@@ -7,7 +7,7 @@ void minmax(int *a,int n,int k){
 }
 int main(){
     int n,k;
-    cout<<"Enter the size of array and k: ";
+    cout<<"Entet the size of array and k: ";
     cin>>n>>k;
     int a[n];
     cout<<"Enter the elements of the array: ";

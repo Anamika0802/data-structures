@@ -4,7 +4,7 @@
 using namespace std;
 struct bst_node{
     int data;
-    bst_node *left,*right ;
+    bst_node* left,*right ;
 };
 // Function to insert a new node
 bst_node* insert(bst_node* root, int data){

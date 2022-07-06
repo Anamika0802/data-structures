@@ -90,66 +90,97 @@
 // 	return 0;
 // }
 
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-class Dsu{
-	private:
-		vector<int>p;
-		int find(int u){
-			if(p[u]<0) return u;
-			return p[u] = find(p[u]);
-		}
-		void unite(int u, int v){
-			int pu = find(u), pv = find(v);
-			if(pu!= pv){
-				if(p[pu]< p[pv]){
-					p[pu]+=p[pv];
-					p[pv] = pu;
-				}
-				else{
-					p[pv]+=p[pu];
-					p[pu] = pv;
-				}
-			}
-		}
-	public:
-	Dsu(int v){
-		p.resize(v,-1);
-	}
-		void kruskal(vector<pair<int, pair<int,int>>> g){
-			sort(g.begin(), g.end());
-			vector<pair<int,int>> mst;
-			int mincost =0;
-			for(auto x: g){
-				int u = x.second.first;
-				int v = x.second.second;
-				int w = x.first;
-				if(find(u)!= find(v)){
-					unite(u,v);
-					mst.push_back({u,v});
-					mincost+=w;
-				}
-			}
-			for(auto edge: mst){
-				cout<<edge.first<<" "<<edge.second<<endl;
-			}
-			cout<<"cost "<<mincost;
-		}
+// class Dsu{
+// 	private:
+// 		vector<int>p;
+// 		int find(int u){
+// 			if(p[u]<0) return u;
+// 			return p[u] = find(p[u]);
+// 		}
+// 		void unite(int u, int v){
+// 			int pu = find(u), pv = find(v);
+// 			if(pu!= pv){
+// 				if(p[pu]< p[pv]){
+// 					p[pu]+=p[pv];
+// 					p[pv] = pu;
+// 				}
+// 				else{
+// 					p[pv]+=p[pu];
+// 					p[pu] = pv;
+// 				}
+// 			}
+// 		}
+// 	public:
+// 	Dsu(int v){
+// 		p.resize(v,-1);
+// 	}
+// 		void kruskal(vector<pair<int, pair<int,int>>> g){
+// 			sort(g.begin(), g.end());
+// 			vector<pair<int,int>> mst;
+// 			int mincost =0;
+// 			for(auto x: g){
+// 				int u = x.second.first;
+// 				int v = x.second.second;
+// 				int w = x.first;
+// 				if(find(u)!= find(v)){
+// 					unite(u,v);
+// 					mst.push_back({u,v});
+// 					mincost+=w;
+// 				}
+// 			}
+// 			for(auto edge: mst){
+// 				cout<<edge.first<<" "<<edge.second<<endl;
+// 			}
+// 			cout<<"cost "<<mincost;
+// 		}
 
-};
-int main(){
+// };
+
+//find part
+int find(vector<int>&p, int i){
+	return p[i]<0?i:p[i] = find(p,p[i]);
+}
+void kruskal(vector<pair<int, pair<int, int>>> &g, int n)
+{
+	sort(g.begin(), g.end());
+	int e = g.size();
+	vector<pair<int,int>>mst;
+	vector<int>p(n,-1);
+	int mincost =0;
+	for (int i = 0; i < e; i++)
+	{
+		//extract edges
+		int w = g[i].first, u = g[i].second.first , v = g[i].second.second;
+		//union part
+		int pu = find(p,u), pv = find(p,v);
+		if(pu!=pv){
+			mincost+=w;
+			p[pu] = pv;
+			mst.push_back({u,v});
+		}
+	}
+	for (auto edge : mst)
+	{
+		cout << edge.first << " " << edge.second << endl;
+	}
+	cout << "cost " << mincost;
+}
+int main()
+{
 	int n, e;
-    cout<<"enter no of vertex and edges:";
-    cin>>n>>e;
-    vector<pair<int, pair<int,int>>>g;
-    cout<<"enter edges:";
-    for (int i = 0; i < e; i++)
-    {
-        int u,v,w;
-        cin>>u>>v>>w;
-        g.push_back({w,{u,v}});
-    }
-	Dsu ob(n);
-	ob.kruskal(g);
+	cout << "enter no of vertex and edges:";
+	cin >> n >> e;
+	vector<pair<int, pair<int, int>>> g;
+	cout << "enter edges:";
+	for (int i = 0; i < e; i++)
+	{
+		int u, v, w;
+		cin >> u >> v >> w;
+		g.push_back({w, {u, v}});
+	}
+	// Dsu ob(n);
+	// ob.kruskal(g);
+	kruskal(g, n);
 }

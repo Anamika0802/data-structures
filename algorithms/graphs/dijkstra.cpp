@@ -4,19 +4,23 @@ using namespace std;
 #define INF 1e7
 typedef pair<int,int> ipair;
 void dijstra(vector<pair<int,int> >g[], int s, int V){
-    priority_queue<ipair, vector<ipair>, greater<ipair>> pq;
-    vector<int> dist(V,INF );
-    pq.push({0, s});
+    //make a pq and a dist vector
+    priority_queue<ipair,vector<ipair>,greater<ipair>>pq;
+    vector<int>dist(V,INF);
+    //psuh src in pq
+    pq.push({s,0});
     dist[s] = 0;
     while(!pq.empty()){
-        int u = pq.top().second;
+        //pop from pq;
+        auto u = pq.top().first;
         pq.pop();
-        for(auto i : g[u]){
-            int v = i.first;
-            int w = i.second;
-            if(dist[v]> dist[u]+w){
-                dist[v] = dist[u]+w;
-                pq.push({dist[v], v});
+        for(auto nei: g[u]){
+            int v = nei.first;
+            int w = nei.second;
+            //relax edges
+            if(dist[v]>dist[u]+w){
+                dist[v]=dist[u]+w;
+                pq.push({v,dist[v]});
             }
         }
     }

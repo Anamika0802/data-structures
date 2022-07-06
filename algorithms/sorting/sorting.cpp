@@ -42,7 +42,7 @@ for (int i = 0; i < n; i++)
 //merge sort not stable,divide-and-conquer,o(nlogn)
 void merge(int a[N], int start,int mid,int end){
 int p = start, q = mid+1;
-int arr[end-start-1], k=0;
+int arr[end-start+1], k=0;
 for (int i = start; i <=end ; i++)
 {
     if(p>mid)

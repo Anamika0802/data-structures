@@ -2,6 +2,21 @@
 #include<vector>
 using namespace std; 
 // Function to rotate the matrix 90 degree clockwise
+void rotate(vector<vector<int>>&a,int n){
+    int l =0, r = n-1;
+    while(l<r){
+        int t = l,b = r;
+        for(int i =0;i<r-l;i++){
+            int tmp = a[t][l+i];
+            a[t][l+i] = a[b-i][l];
+            a[b-i][l] = a[b][r-i];
+            a[b][r-i] = a[t+i][r];
+            a[t+i][r] = tmp;
+        }
+        l++;
+        r--;
+    }
+}
 void rotate90Clockwise(vector<vector<int>> &a,int N)
 {
  
@@ -45,6 +60,7 @@ int main(){
         a.push_back(rows);
     }
    printMatrix(a,n);
-   rotate90Clockwise(a,n); 
+//    rotate90Clockwise(a,n);
+    rotate(a,n);
    printMatrix(a,n);
 }
